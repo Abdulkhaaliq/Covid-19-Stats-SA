@@ -1,4 +1,5 @@
-﻿using Covid19SAStats.Services.Interfaces;
+﻿using Covid19SAStats.Models;
+using Covid19SAStats.Services.Interfaces;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
@@ -14,23 +15,29 @@ namespace Covid19SAStats.ViewModels
     {
         private readonly INavigationService _navigationService;
 
-        private IEventAggregator _eventAggregator;
+        private Countrydata _countrydata;
+        public Countrydata Countrydata
+        {
+            get { return _countrydata; }
+            set { SetProperty(ref _countrydata, value); }
+        }
 
-        private ISecurityService _securityService;
+        public void MyStatsModel()
+        {
+            _countrydata.total_cases.ToString();
 
 
+        }
 
-        private IPageDialogService _pageDialogService;
 
-
-        public StatsPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IEventAggregator eventAggregator, ISecurityService securityService)
+        public StatsPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            _pageDialogService = pageDialogService;
-            _securityService = securityService;
-            _eventAggregator = eventAggregator;
+
+
             _navigationService = navigationService;
             Title = "Home";
+            Countrydata = new Countrydata();
         }
     }
 }

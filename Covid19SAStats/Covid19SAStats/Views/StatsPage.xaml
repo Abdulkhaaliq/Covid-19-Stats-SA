@@ -32,7 +32,7 @@
                     </StackLayout>
                     <StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
-                            <Label  Text="704" TextColor="Black" FontSize="150" HorizontalOptions="Center"/>
+                            <Label  Text="{Binding total_cases}" TextColor="Black" FontSize="150" HorizontalOptions="Center"/>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
