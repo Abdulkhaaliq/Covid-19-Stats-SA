@@ -15,19 +15,14 @@ namespace Covid19SAStats.ViewModels
     {
         private readonly INavigationService _navigationService;
 
-        private Countrydata _countrydata;
-        public Countrydata Countrydata
+        private InformationHere  _countrydata;
+        public InformationHere Countrydata
         {
             get { return _countrydata; }
             set { SetProperty(ref _countrydata, value); }
         }
 
-        public void MyStatsModel()
-        {
-            _countrydata.total_cases.ToString();
-
-
-        }
+ 
 
 
         public StatsPageViewModel(INavigationService navigationService)

@@ -9,7 +9,7 @@ namespace Covid19SAStats.Services.Interfaces
     public interface ISecurityService
     {
         IList<MenuItem> GetAllowedAccessItems();
-        Task<bool> Login(string Email, string Password);
+        Task<bool> Login();
         void LogOut();
     }
 }

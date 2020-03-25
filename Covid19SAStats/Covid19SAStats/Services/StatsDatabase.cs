@@ -11,7 +11,7 @@ namespace Covid19SAStats.Services
 {
     public class StatsDatabase : IDatabase
     {
-        public User person;
+        public User Person;
 
         private SQLiteAsyncConnection userDatabase;
 
@@ -47,7 +47,7 @@ namespace Covid19SAStats.Services
 
         public void Access()
         {
-            person = new User();
+            Person = new User();
 
             var userprofile = new User();
             userprofile.Email = "Admin@gmail.com";

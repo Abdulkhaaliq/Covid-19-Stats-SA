@@ -62,23 +62,15 @@ namespace Covid19SAStats.Services
             }
         }
 
-        public async Task<bool> Login(string Email, string Password)
-        {
-            // Do Your Stuff to Check if Legit (ie API Calls)
+        public async Task<bool> Login()
+        { 
+            LoggedIn = true;
+            _eventAggregator.GetEvent<LoginMessage>().Publish();
 
-            var userProfile = await _database.GetPeopleByEmail(Email);
-
-            if (userProfile.Password == Password && userProfile.Email == Email)
+            if (LoggedIn)
             {
-                LoggedIn = true;
-
                 return true;
             }
-            else if (userProfile.Email == null && userProfile.Password == null || userProfile.Email == null || userProfile.Password == null)
-            {
-                await _pageDialogService.DisplayAlertAsync("Try Again", "Please enter your details", "Ok");
-            }
-
             return false;
         }
 
@@ -109,7 +101,7 @@ namespace Covid19SAStats.Services
             menuItem.MenuItemName = "About Us";
             menuItem.NavigationPath = "NavigationPage/AboutUs";
             menuItem.MenuOrder = 1;
-            menuItem.MenuType = MenuTypeEnum.UnSecured;
+            menuItem.MenuType = MenuTypeEnum.Login;
 
         }
     }

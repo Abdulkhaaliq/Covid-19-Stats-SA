@@ -23,7 +23,7 @@ namespace Covid19SAStats.ViewModels
 
         private IPageDialogService _pageDialogService;
 
-        private bool buttonWasClicked = false;
+        private bool LoggedIn = false;
         private User _person;
         public User Person
         {
@@ -37,18 +37,13 @@ namespace Covid19SAStats.ViewModels
 
         async void ExecuteEnteredCommand()
         {
-            buttonWasClicked = true;
-            var loginResult = buttonWasClicked;
-
-                if (loginResult)
+            LoggedIn = true;
+                if (LoggedIn)
                 {
                     _eventAggregator.GetEvent<LoginMessage>().Publish();
                     await  NavigationService.NavigateAsync("NavigationPage/StatsPage");
                     await _pageDialogService.DisplayAlertAsync("Welcome", "Nice to see you!!!", "Ok");
                 }
-            
-
-        
         }
 
 
