@@ -4,7 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Covid19SAStats.Views.AboutUs"
-             BackgroundColor="LightGreen"
+             BackgroundColor="#1aff00"
              Title="{Binding Title}">
 
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
@@ -25,7 +25,7 @@
             </Grid>
             <Grid Grid.Row="2">
                 <StackLayout>
-                    <Label Text="A small project that gives relevant statistics on covid-19 in South Africa. If we all come together, we can curb the spread and ultimate disruption to our economy. Dont be a drag, wash your hands!" TextColor="DarkCyan" FontSize="Default"/>
+                    <Label Text="A small project that gives relevant statistics on covid-19 in South Africa. If we all come together, we can curb the spread in our country. Dont be a drag, wash your hands!" TextColor="DarkCyan" FontSize="Default"/>
                 </StackLayout>
             </Grid>
             <Grid Grid.Row="8">
@@ -42,6 +42,11 @@
                 <StackLayout>
                     <Button Text="Donate here" Command="{Binding DonateCommand}"  Grid.Row="2" BackgroundColor="Gold" CornerRadius="20" HorizontalOptions="Center" WidthRequest="300"/>
 
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="4">
+                <StackLayout>
+                    <Image Source="AboutUs" />
                 </StackLayout>
             </Grid>
         </Grid>

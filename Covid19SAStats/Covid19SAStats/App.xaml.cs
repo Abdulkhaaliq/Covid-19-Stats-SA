@@ -24,8 +24,6 @@ namespace Covid19SAStats
             InitializeComponent();
 
             await NavigationService.NavigateAsync("PrismMasterDetailPage/NavigationPage/StatsPage");
-
-
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

@@ -49,22 +49,20 @@ namespace Covid19SAStats.ViewModels
         {
             try 
             { 
-             var stats = await StatsGenerator.GetStatsAsync();
-              Countrydata = stats;
-            }
-            catch(Exception ex)
-            {
+       
                 var current = Connectivity.NetworkAccess;
 
                 if (current == NetworkAccess.Internet)
                 {
                     // Connection to internet is available
+                    var stats = await StatsGenerator.GetStatsAsync();
+                    Countrydata = stats;
                     await _pageDialogService.DisplayAlertAsync("Welcome!", "Information on covid-19 in South Africa", "ok");
                 }
-                else
-                {
+            }
+            catch(Exception ex)
+            {
                     await _pageDialogService.DisplayAlertAsync("Unexpected Error", "No Interent access", "cancel", "ok");
-                }
             }
         }
     }

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Covid19SAStats": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
