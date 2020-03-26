@@ -34,7 +34,7 @@ namespace Covid19SAStats.ViewModels
             MenuItems.Add(new Items()
             {
                 MenuItemId = 1,
-                MenuItemName = "SA Statistics",        
+                MenuItemName = "South Africa Covid-19 Statistics",        
                 MenuOrder = 1,
                 NavigationPath = "StatsPage"
             });

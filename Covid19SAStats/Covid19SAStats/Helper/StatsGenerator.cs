@@ -13,9 +13,12 @@ namespace Covid19SAStats.Helper
         public static async Task<InformationHere> GetStatsAsync()
         {
 
-          
+            
                 HttpClient httpClient = new HttpClient();
                 string news = await httpClient.GetStringAsync("https://coronavirus-19-api.herokuapp.com/countries/South%20Africa");
+
+    
+
                 Stats getter = JsonConvert.DeserializeObject<Stats>(news);
 
 
@@ -31,7 +34,6 @@ namespace Covid19SAStats.Helper
             
             return statInfo;
             
-           
         }
     }
 }
