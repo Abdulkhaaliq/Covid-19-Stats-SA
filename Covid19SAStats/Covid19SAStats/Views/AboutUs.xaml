@@ -3,6 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="Covid19SAStats.Views.AboutUs">
-  
+             x:Class="Covid19SAStats.Views.AboutUs"
+             BackgroundColor="LightGreen"
+             Title="{Binding Title}">
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+
+                <StackLayout Orientation="Horizontal" Spacing="50" HorizontalOptions="Center">
+                    <Label Text="About Us" TextColor="DarkGoldenrod" FontSize="Title" />
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackLayout>
+                    <Label Text="A small project that gives relevant statistics on covid-19 in South Africa. If we all come together, we can curb the spread and ultimate disruption to our economy. Dont be a drag, wash your hands!" TextColor="DarkCyan" FontSize="Default"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="8">
+                <StackLayout>
+                    <Button Text="Email Us" Command="{Binding EmailCommand}"  Grid.Row="1" BackgroundColor="Gold" CornerRadius="20" HorizontalOptions="Center" WidthRequest="300"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="7">
+                <StackLayout>
+                    <Label Text="Help stop the spread of this virus!" FontSize="Body" TextColor="DarkCyan" HorizontalOptions="Center"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="9">
+                <StackLayout>
+                    <Button Text="Donate here" Command="{Binding DonateCommand}"  Grid.Row="2" BackgroundColor="Gold" CornerRadius="20" HorizontalOptions="Center" WidthRequest="300"/>
+
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </Grid>
 </ContentPage>

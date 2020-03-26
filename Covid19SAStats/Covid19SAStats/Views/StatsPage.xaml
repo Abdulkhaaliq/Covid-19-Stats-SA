@@ -6,6 +6,7 @@
              x:Class="Covid19SAStats.Views.StatsPage"
              Title="{Binding Title}">
 
+    
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

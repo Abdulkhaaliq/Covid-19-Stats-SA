@@ -12,13 +12,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Covid19SAStats.ViewModels
 {
     public class StatsPageViewModel : ViewModelBase  , IPageLifecycleAware
     {
-        private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
+
         public DateTime CurrentDate { get; }
 
         private InformationHere  _countrydata;
@@ -35,7 +36,6 @@ namespace Covid19SAStats.ViewModels
             CurrentDate = DateTime.UtcNow;
 
             _pageDialogService = pageDialogService;
-            _navigationService = navigationService;
             Title = "Home";
           
         }
@@ -54,7 +54,17 @@ namespace Covid19SAStats.ViewModels
             }
             catch(Exception ex)
             {
-                await _pageDialogService.DisplayAlertAsync("Unexpected Error", ex.ToString() ,"ok");
+                var current = Connectivity.NetworkAccess;
+
+                if (current == NetworkAccess.Internet)
+                {
+                    // Connection to internet is available
+                    await _pageDialogService.DisplayAlertAsync("Welcome!", "Information on covid-19 in South Africa", "ok");
+                }
+                else
+                {
+                    await _pageDialogService.DisplayAlertAsync("Unexpected Error", "No Interent access", "cancel", "ok");
+                }
             }
         }
     }
