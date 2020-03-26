@@ -18,6 +18,7 @@ namespace Covid19SAStats.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;

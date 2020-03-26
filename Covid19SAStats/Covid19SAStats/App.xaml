@@ -5,7 +5,14 @@
              x:Class="Covid19SAStats.App">
 	<Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <ResourceDictionary>
 
-	</Application.Resources>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#0f961f"/>
+                <Setter Property="BarTextColor" Value="Color.White"/>
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
+    
 </prism:PrismApplication>

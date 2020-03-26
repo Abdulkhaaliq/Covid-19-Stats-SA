@@ -42,7 +42,7 @@ namespace Covid19SAStats.ViewModels
                 {
                     _eventAggregator.GetEvent<LoginMessage>().Publish();
                     await  NavigationService.NavigateAsync("NavigationPage/StatsPage");
-                    await _pageDialogService.DisplayAlertAsync("Welcome", "Nice to see you!!!", "Ok");
+               
                 }
         }
 

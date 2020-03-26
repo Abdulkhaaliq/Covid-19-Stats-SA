@@ -14,6 +14,7 @@ namespace Covid19SAStats.ViewModels
     public class StatsPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+        public DateTime CurrentDate { get; }
 
         private InformationHere  _countrydata;
         public InformationHere Countrydata
@@ -28,11 +29,11 @@ namespace Covid19SAStats.ViewModels
         public StatsPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-
+            CurrentDate = DateTime.UtcNow;
 
             _navigationService = navigationService;
             Title = "Home";
-            Countrydata = new Countrydata();
+            Countrydata = new InformationHere();
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Covid19SAStats.Views
         public StatsPage()
         {
             InitializeComponent();
+           
         }
     }
 }
