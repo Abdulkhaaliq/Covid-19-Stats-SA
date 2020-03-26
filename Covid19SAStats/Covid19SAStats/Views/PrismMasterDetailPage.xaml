@@ -7,38 +7,41 @@
                   BackgroundColor="DarkGreen">
 
     <MasterDetailPage.Master>
-        <NavigationPage Title="Menu" Icon="hamburger.png" BackgroundColor="DarkOliveGreen">
+        <NavigationPage Title="Menu" 
+                        Icon="ic_hamburger.png">
+
             <x:Arguments>
-                <ContentPage BackgroundColor="DarkGreen" Title="Menu">
-                    <ListView ItemsSource="{Binding MenuItems}" HasUnevenRows="True" SelectionMode="None">
+                <ContentPage Title="My App">
+
+                    <ListView ItemsSource="{Binding MenuItems}"
+                              SelectedItem="{Binding SelectedMenuItem}"
+                              SeparatorColor="DarkGreen"
+                              RowHeight="60"
+                              SeparatorVisibility="Default"
+                              BackgroundColor="DarkGreen">
+
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="80"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
 
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="20"/>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="20"/>
-                                        </Grid.RowDefinitions>
+                                    <!-- Main design for our menu items -->
+                                    <StackLayout VerticalOptions="FillAndExpand"
+                                                 Orientation="Horizontal"
+                                                 Padding="20,10,0,10"
+                                                 Spacing="20"
+                                                 BackgroundColor="Gold">
 
-                                        <Label  Text="{Binding MenuItemName}"  Grid.Column="1" Grid.Row="1" TextColor="Black" />
-
-                                    </Grid>
+                                        <Label Text="{Binding MenuItemName}"
+                                               TextColor="Black"/>
+                                    </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
 
                         <ListView.Behaviors>
                             <prism:EventToCommandBehavior EventName="ItemTapped" 
-                                                      Command="{Binding NavigateCommand}"
-                                                      EventArgsConverter="{converters:ItemTappedEventArgsConverter}" />
+                                                      Command="{Binding NavigateCommand}" />
                         </ListView.Behaviors>
-
 
                     </ListView>
                 </ContentPage>

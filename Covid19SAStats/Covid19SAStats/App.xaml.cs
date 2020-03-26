@@ -25,7 +25,7 @@ namespace Covid19SAStats
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("PrismMasterDetailPage/NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("PrismMasterDetailPage/NavigationPage/StatsPage");
 
 
         }
@@ -33,11 +33,9 @@ namespace Covid19SAStats
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IDatabase, StatsDatabase>();
-            containerRegistry.RegisterSingleton<ISecurityService, SecurityService>();
 
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<PrismMasterDetailPage, PrismMasterDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<StatsPage, StatsPageViewModel>();
             containerRegistry.RegisterForNavigation<AboutUs, AboutUsViewModel>();

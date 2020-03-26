@@ -10,22 +10,24 @@ namespace Covid19SAStats.Helper
 {
     public class StatsGenerator
     {
-        public static async Task<InformationHere> GetWeatherAsync()
+        public static async Task<InformationHere> GetStatsAsync()
         {
 
           
                 HttpClient httpClient = new HttpClient();
                 string news = await httpClient.GetStringAsync("https://coronavirus-19-api.herokuapp.com/countries/South%20Africa");
                 Stats getter = JsonConvert.DeserializeObject<Stats>(news);
-           
-
-                var statInfo = new InformationHere
-                {
-                    active = getter.active,
 
 
+            InformationHere statInfo = new InformationHere()
+            {
+                cases = getter.cases,
+                active = getter.active,
+                recovered = getter.recovered,
+                deaths = getter.deaths,
+                todayCases = getter.todayCases,
 
-                };
+            };
             
             return statInfo;
             

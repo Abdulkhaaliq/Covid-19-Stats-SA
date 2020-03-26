@@ -1,58 +1,59 @@
-﻿using Covid19SAStats.Messages;
-using Covid19SAStats.Models;
-using Covid19SAStats.Services.Interfaces;
+﻿using Covid19SAStats.Models;
 using Prism.Commands;
-using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace Covid19SAStats.ViewModels
 {
-    public class PrismMasterDetailPageViewModel : ViewModelBase
+    public class PrismMasterDetailPageViewModel : BindableBase
     {
-        private ISecurityService _securityService;
-        private IEventAggregator _eventAggregator;
-        private DelegateCommand<MenuItem> _navigateCommand;
-        private ObservableCollection<MenuItem> _menuItems;
-        public ObservableCollection<MenuItem> MenuItems
-        {
-            get { return _menuItems; }
-            set { SetProperty(ref _menuItems, value); }
-        }
-        public DelegateCommand<MenuItem> NavigateCommand =>
-            _navigateCommand ?? (_navigateCommand = new DelegateCommand<MenuItem>(ExecuteNavigateCommand));
-        public async void ExecuteNavigateCommand(MenuItem menu)
-        {
-            if (menu.MenuType == Enums.MenuTypeEnum.LogOut)
-                _securityService.LogOut();
-            else
-                await NavigationService.NavigateAsync(menu.NavigationPath);
-        }
-        public PrismMasterDetailPageViewModel(INavigationService navigationService, ISecurityService securityService, IEventAggregator eventAggregator)
-            : base(navigationService)
-        {
-            Title = "Main Page";
-            _securityService = securityService;
-            _eventAggregator = eventAggregator;
-            MenuItems = new ObservableCollection<MenuItem>(_securityService.GetAllowedAccessItems());
+        private INavigationService _navigationService;
 
-            _eventAggregator.GetEvent<LoginMessage>().Subscribe(LoginEvent);
+        public ObservableCollection<Items> MenuItems { get; set; }
 
-            _eventAggregator.GetEvent<LogOut>().Subscribe(LogOutEvent);
-        }
-        public void LoginEvent()
+        private Items selectedMenuItem;
+        public Items SelectedMenuItem
         {
-            MenuItems = new ObservableCollection<MenuItem>(_securityService.GetAllowedAccessItems());
-            NavigationService.NavigateAsync("NavigationPage/StatsPage");
+            get => selectedMenuItem;
+            set => SetProperty(ref selectedMenuItem, value);
         }
-        public void LogOutEvent()
+
+        public DelegateCommand NavigateCommand { get; private set; }
+
+        public PrismMasterDetailPageViewModel(INavigationService navigationService)
         {
-            MenuItems = new ObservableCollection<MenuItem>(_securityService.GetAllowedAccessItems());
-            NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            _navigationService = navigationService;
+
+            MenuItems = new ObservableCollection<Items>();
+
+            MenuItems.Add(new Items()
+            {
+                MenuItemId = 1,
+                MenuItemName = "SA Statistics",        
+                MenuOrder = 1,
+                NavigationPath = "StatsPage"
+            });
+
+            MenuItems.Add(new Items()
+            {
+                MenuItemId = 2,
+                MenuItemName = "About Us",
+                Color = "Black",
+                MenuOrder = 2,
+                NavigationPath = "AboutUs"
+            }); ;
+
+            NavigateCommand = new DelegateCommand(Navigate);
+        }
+
+        async void Navigate()
+        {
+            await _navigationService.NavigateAsync(nameof(NavigationPage) + "/" + SelectedMenuItem.NavigationPath);
         }
     }
 }
