@@ -4,8 +4,6 @@ using Covid19SAStats.ViewModels;
 using Covid19SAStats.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Covid19SAStats.Services;
-using Covid19SAStats.Services.Interfaces;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Covid19SAStats
@@ -32,9 +30,6 @@ namespace Covid19SAStats
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IDatabase, StatsDatabase>();
-
-
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<PrismMasterDetailPage, PrismMasterDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<StatsPage, StatsPageViewModel>();
