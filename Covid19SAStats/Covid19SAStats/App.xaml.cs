@@ -32,6 +32,8 @@ namespace Covid19SAStats
             containerRegistry.RegisterForNavigation<PrismMasterDetailPage, PrismMasterDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<StatsPage, StatsPageViewModel>();
             containerRegistry.RegisterForNavigation<AboutUs, AboutUsViewModel>();
+            containerRegistry.RegisterForNavigation<TipsPage, TipsPageViewModel>();
+            containerRegistry.RegisterForNavigation<HotlinePage, HotlinePageViewModel>();
         }
     }
 }

@@ -25,7 +25,12 @@
             </Grid>
             <Grid Grid.Row="2">
                 <StackLayout>
-                    <Label Text="A small project that gives relevant statistics on covid-19 in South Africa. If we all come together, we can curb the spread in our country. Dont be a drag, wash your hands!" TextColor="DarkCyan" FontSize="Default"/>
+                    <Label Text="A small project that gives relevant statistics on covid-19 in South Africa. If we all come together, we can curb the spread in our country. Dont be a drag, wash your hands!" TextColor="DarkOliveGreen" FontSize="Default"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="3">
+                <StackLayout>
+                    <Label Text="This is a free application to use and if you feel the willingness to donate through paypal with the link below, i would like to thank you in advance! The funds go towards the maintence of the application!" TextColor="DarkOliveGreen"/>
                 </StackLayout>
             </Grid>
             <Grid Grid.Row="8">
@@ -35,7 +40,7 @@
             </Grid>
             <Grid Grid.Row="7">
                 <StackLayout>
-                    <Label Text="Help stop the spread of this virus!" FontSize="Body" TextColor="DarkCyan" HorizontalOptions="Center"/>
+                    <Label Text="Help stop the spread of this virus!" FontSize="Large" TextColor="DarkOliveGreen" HorizontalOptions="Center"/>
                 </StackLayout>
             </Grid>
             <Grid Grid.Row="9">

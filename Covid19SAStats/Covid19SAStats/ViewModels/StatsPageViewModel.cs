@@ -48,8 +48,7 @@ namespace Covid19SAStats.ViewModels
         public async void OnAppearing()
         {
             try 
-            { 
-       
+            {     
                 var current = Connectivity.NetworkAccess;
 
                 if (current == NetworkAccess.Internet)
@@ -62,7 +61,12 @@ namespace Covid19SAStats.ViewModels
             }
             catch(Exception ex)
             {
+                var current = Connectivity.NetworkAccess;
+
+                if (current != NetworkAccess.Internet)
+                {
                     await _pageDialogService.DisplayAlertAsync("Unexpected Error", "No Interent access", "cancel", "ok");
+                }
             }
         }
     }

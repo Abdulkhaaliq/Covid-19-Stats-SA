@@ -20,7 +20,7 @@ namespace Covid19SAStats.ViewModels
 
         async void ExecuteEmailCommand()
         {
-            var result = await _pageDialogService.DisplayAlertAsync("Alert", "Send us a email with your thoughts!", "Ok", "Cancel");
+            var result = await _pageDialogService.DisplayAlertAsync("Alert", "Send us an email with your thoughts!", "Ok", "Cancel");
             if(result == true)
             {
                 List<string> toAddress = new List<string>();
@@ -70,7 +70,7 @@ namespace Covid19SAStats.ViewModels
             var result = await _pageDialogService.DisplayAlertAsync("Notice", "Donate what you feel is right", "Ok", "Cancel");
             if (result == true)
             {
-               await Browser.OpenAsync("https://www.paypal.com/paypalme2/Abdulkhaaliqdolllie/20", BrowserLaunchMode.SystemPreferred);
+               await Browser.OpenAsync("", BrowserLaunchMode.SystemPreferred);
             }
             else
             {

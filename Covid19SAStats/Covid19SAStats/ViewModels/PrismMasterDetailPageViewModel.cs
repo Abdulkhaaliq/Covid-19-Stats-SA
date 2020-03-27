@@ -42,9 +42,25 @@ namespace Covid19SAStats.ViewModels
             MenuItems.Add(new Items()
             {
                 MenuItemId = 2,
+                MenuItemName = "Tips hub",
+                MenuOrder = 2,
+                NavigationPath = "TipsPage"
+            });
+
+            MenuItems.Add(new Items()
+            {
+                MenuItemId = 3,
+                MenuItemName = "Emergency Contacts Here",
+                MenuOrder = 3,
+                NavigationPath = "HotlinePage"
+            });
+
+            MenuItems.Add(new Items()
+            {
+                MenuItemId = 4,
                 MenuItemName = "About Us",
                 Color = "Black",
-                MenuOrder = 2,
+                MenuOrder = 4,
                 NavigationPath = "AboutUs"
             }); ;
 
