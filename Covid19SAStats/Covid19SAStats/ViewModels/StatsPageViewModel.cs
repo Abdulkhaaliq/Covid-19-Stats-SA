@@ -59,7 +59,7 @@ namespace Covid19SAStats.ViewModels
                     await _pageDialogService.DisplayAlertAsync("Welcome!", "Information on covid-19 in South Africa", "ok");
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 var current = Connectivity.NetworkAccess;
 

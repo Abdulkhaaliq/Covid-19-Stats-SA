@@ -47,13 +47,13 @@ namespace Covid19SAStats.ViewModels
                 };
                 await Email.ComposeAsync(message);
             }
-            catch (FeatureNotSupportedException ex)
+            catch (FeatureNotSupportedException)
             {
                 // Email is not supported on this device  
                 await _pageDialogService.DisplayAlertAsync("Alert", "No access to email service", "ok");
                 return;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Some other exception occurred  
                 return;
@@ -70,7 +70,7 @@ namespace Covid19SAStats.ViewModels
             var result = await _pageDialogService.DisplayAlertAsync("Notice", "Donate what you feel is right", "Ok", "Cancel");
             if (result == true)
             {
-               await Browser.OpenAsync("", BrowserLaunchMode.SystemPreferred);
+               await Browser.OpenAsync("https://www.paypal.com/paypalme2/Abdulkhaaliqdolllie/20", BrowserLaunchMode.SystemPreferred);
             }
             else
             {

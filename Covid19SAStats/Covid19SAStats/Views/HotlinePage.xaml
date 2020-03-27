@@ -3,6 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="Covid19SAStats.Views.HotlinePage">
-  
+             x:Class="Covid19SAStats.Views.HotlinePage"
+             BackgroundColor="LightGreen">
+
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+
+                <StackLayout Orientation="Horizontal" Spacing="50" HorizontalOptions="Center">
+                    <Label Text="Emergency Numbers" TextColor="DarkGoldenrod" FontSize="Title" />
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="2">
+
+                <StackLayout Orientation="Horizontal" Spacing="50" HorizontalOptions="Center">
+                    <Label Text="Tap button to copy number and paste into your dialer" TextColor="Black" FontSize="Large" HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="3">
+                <StackLayout>
+                    <Button Text="CORONA VIRUS(COVID-19) 24-HOUR HOTLINE:" CornerRadius="30" Command="{Binding CovidCommand}" BackgroundColor="Gold"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="4">
+                <StackLayout>
+                    <Button Text="NATIONWIDE EMERGENCY HOTLINE:" CornerRadius="30" Command="{Binding EmergencyCommand}" BackgroundColor="Gold"/>
+                </StackLayout>
+                
+            </Grid>
+            <Grid Grid.Row="5">
+                <StackLayout>
+                    <Button Text="AMBULANCE RESPONSE:" CornerRadius="30" Command="{Binding AmbulanceCommand}" BackgroundColor="Gold"/>
+                </StackLayout>
+
+            </Grid>
+        </Grid>
+    </Grid>
 </ContentPage>
